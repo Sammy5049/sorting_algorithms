@@ -26,10 +26,12 @@ void swap_ints(int *a, int *b)
 int partition_sort(int *array, size_t size, int lower, int upper)
 {
 	int *pivot, above, below, left, right;
+
 	left = lower;
 	right = upper;
 
 	pivot = array + right;
+
 	for (above = below = left; below < right; below++)
 	{
 		if (array[below] < *pivot)
