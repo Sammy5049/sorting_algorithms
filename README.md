@@ -1,5 +1,5 @@
 C - Sorting algorithms & Big O
-
+TEAM - MAYOKUN AND DAMILOLA
 #include <stdlib.h>
 #include <stdio.h>
 
