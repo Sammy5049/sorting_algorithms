@@ -17,7 +17,7 @@ int partition_sort(int *array, int lower, int upper, size_t size)
 	pivot = array[lower];
 
 	if (array == NULL || size < 2)
-		return;
+		return (1);
 
 	while (start < end)
 	{
