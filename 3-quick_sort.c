@@ -2,6 +2,20 @@
 
 
 /**
+ * swap_ints - Swap two ints in an array.
+ * @a: 1st int.
+ * @b: 2nd int.
+ */
+void swap_ints(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
  * partition_sort - funct to partition the array
  * @array: array of unsorted ints
  * @lower: lower bound of the list
@@ -9,43 +23,37 @@
  * @size: size of the array
  * Return: position of the upper bound after iter
  */
-int partition_sort(int *array, int lower, int upper, size_t size)
+int partition_sort(int *array, size_t size, int lower, int upper)
 {
-	int pivot, temp;
-	size_t start = lower, end = upper;
+	int *pivot, above, below, left, right;
+	left = lower;
+	right = upper;
 
-	pivot = array[lower];
-
-	if (array == NULL || size < 2)
-		return (1);
-
-	while (start < end)
+	pivot = array + right;
+	for (above = below = left; below < right; below++)
 	{
-		while (array[start] <= pivot)
+		if (array[below] < *pivot)
 		{
-			start++;
+			if (above < below)
+			{
+				swap_ints(array + below, array + above);
+				print_array(array, size);
+			}
+			above++;
 		}
-		while (array[end] > pivot)
-		{
-			end--;
-		}
-
-		if (start < end)
-		{
-			temp = array[start];
-			array[start] = array[end];
-			array[end] = temp;
-			print_array(array, size);
-		}
-
 	}
-	temp = array[lower];
-	array[lower] = array[end];
-	array[end] = temp;
-	print_array(array, size);
 
-	return (end);
+	if (array[above] > *pivot)
+	{
+		swap_ints(array + above, pivot);
+		print_array(array, size);
+	}
+
+	return (above);
 }
+
+
+
 /**
  * quick_sort_recursive - funct to recusively call quick sort.
  * @array: array list to sort.
@@ -53,13 +61,13 @@ int partition_sort(int *array, int lower, int upper, size_t size)
  * @upper: upper bound.
  * @size: size of array.
  */
-void quick_sort_recursive(int *array, size_t lower, size_t upper,  size_t size)
+void quick_sort_recursive(int *array, int lower, int upper,  size_t size)
 {
 	int position;
 
 	if (lower < upper)
 	{
-		position = partition_sort(array, lower, upper, size);
+		position = partition_sort(array, size, lower, upper);
 		quick_sort_recursive(array, lower, position - 1, size);
 		quick_sort_recursive(array, position + 1, upper, size);
 	}
