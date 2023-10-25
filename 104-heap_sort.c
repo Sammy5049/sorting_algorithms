@@ -22,9 +22,9 @@ void make_max_heap(int *array, size_t size, size_t base, size_t root)
 
 	if (large != root)
 	{
-        temp = array[root];
-        array[root] = array[large];
-        array[large] = temp;
+		temp = array[root];
+		array[root] = array[large];
+		array[large] = temp;
 		print_array(array, size);
 		make_max_heap(array, size, base, large);
 	}
@@ -47,10 +47,12 @@ void heap_sort(int *array, size_t size)
 
 	for (count = size - 1; count > 0; count--)
 	{
-        temp = array[0];
-        array[0] = array[count];
-        array[count] = temp;
+		temp = array[0];
+		array[0] = array[count];
+		array[count] = temp;
 		print_array(array, size);
 		make_max_heap(array, size, count, 0);
 	}
+
 }
+

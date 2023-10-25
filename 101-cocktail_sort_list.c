@@ -3,15 +3,17 @@
 
 
 /**
-* swap_head - Swap head node in a liked list
-* @list: Pointer to list head.
-* @node_tail: Pointer to list tail.
-* @shaker: Pointer to current swapping node
-*/
+ * swap_head - Swap head node in a liked list
+ * @list: Pointer to list head.
+ * @node_tail: Pointer to list tail.
+ * @shaker: Pointer to current swapping node
+ */
 void swap_head(listint_t **list, listint_t **node_tail, listint_t **shaker)
 {
 	listint_t *inter;
-    inter = (*shaker)->next;
+
+	inter = (*shaker)->next;
+
 
 	if ((*shaker)->prev != NULL)
 		(*shaker)->prev->next = inter;
@@ -37,7 +39,9 @@ void swap_head(listint_t **list, listint_t **node_tail, listint_t **shaker)
 void swap_end(listint_t **list, listint_t **node_tail, listint_t **shaker)
 {
 	listint_t *inter;
-    inter = (*shaker)->prev;
+
+	inter = (*shaker)->prev;
+
 
 	if ((*shaker)->next != NULL)
 		(*shaker)->next->prev = inter;

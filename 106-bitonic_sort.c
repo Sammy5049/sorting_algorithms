@@ -28,7 +28,7 @@ void swap_ints(int *a, int *b)
  * @flow: direction to sort through.
  */
 void merge_bito(int *array, size_t size, size_t start, size_t seq,
-				char flow)
+		char flow)
 {
 	size_t count, gap = seq / 2;
 
@@ -37,7 +37,7 @@ void merge_bito(int *array, size_t size, size_t start, size_t seq,
 		for (count = start; count < start + gap; count++)
 		{
 			if ((flow == UP && array[count] > array[count + gap]) ||
-				(flow == DOWN && array[count] < array[count + gap]))
+					(flow == DOWN && array[count] < array[count + gap]))
 				swap_ints(array + count, array + count + gap);
 		}
 		merge_bito(array, size, start, gap, flow);
@@ -53,7 +53,8 @@ void merge_bito(int *array, size_t size, size_t start, size_t seq,
  * @seq: size of the sequence to sort.
  * @flow: direction to sort through.
  */
-void sequence_bito(int *array, size_t size, size_t start, size_t seq, char flow)
+void sequence_bito(int *array, size_t size, size_t start, size_t seq,
+		char flow)
 {
 	size_t brk = seq / 2;
 	char *str = (flow == UP) ? "UP" : "DOWN";

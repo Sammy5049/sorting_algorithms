@@ -30,12 +30,10 @@ int hoare_partition(int *array, size_t size, int left, int right)
 	piv = array[right];
 	for (upbd = left - 1, lowbd = right + 1; upbd < lowbd;)
 	{
-		do
-		{
+		do {
 			upbd++;
 		} while (array[upbd] < piv);
-		do
-		{
+		do {
 			lowbd--;
 		} while (array[lowbd] > piv);
 

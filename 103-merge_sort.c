@@ -60,6 +60,7 @@ void merge_sort_rec(int *sub_array, int *buffer, size_t fwd, size_t bck)
 void merge_sort(int *array, size_t size)
 {
 	int *buffer;
+
 	if (array == NULL || size < 2)
 		return;
 	buffer = malloc(sizeof(int) * size);
@@ -68,3 +69,4 @@ void merge_sort(int *array, size_t size)
 	merge_sort_rec(array, buffer, 0, size);
 	free(buffer);
 }
+
