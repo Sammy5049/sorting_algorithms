@@ -18,9 +18,9 @@
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
 
@@ -45,7 +45,8 @@ void cocktail_sort_list(listint_t **list);
 void sub_array_merge(int *sub_array, int *buffer, size_t fwd, size_t mid,
 		size_t bck);
 void heap_sort(int *array, size_t size);
-void sequence_bito(int *array, size_t size, size_t start, size_t seq, char flow);
+void sequence_bito(int *array, size_t size, size_t start, size_t seq,
+		char flow);
 void insertion_sort_list(listint_t **list);
 int get_maximum(int *array, int size);
 void quick_sort_hoare(int *array, size_t size);
